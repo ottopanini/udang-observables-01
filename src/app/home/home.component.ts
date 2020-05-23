@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     this.firstSubscription = observable.subscribe(data => console.log(data),
-      error => alert(error.message));
+      error => alert(error.message),
+      () => console.log('completed'));
   }
 
   ngOnDestroy(): void {
