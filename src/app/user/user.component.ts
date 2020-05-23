@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   }
 
   onActivate() {
-    this.userService.activatedEmitter.next(true);
+    let counter = 0;
+    setInterval(() => this.userService.activatedEmitter.emit(counter++), 1000);
   }
 }

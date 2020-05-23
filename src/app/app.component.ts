@@ -8,14 +8,14 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  userActivated = false;
+  counts: number[] = [];
   private activatedSubscription: Subscription;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.activatedSubscription = this.userService.activatedEmitter.subscribe(didActivate => {
-      this.userActivated = didActivate;
+    this.activatedSubscription = this.userService.activatedEmitter.subscribe(count => {
+      this.counts.push(count);
     });
   }
 
