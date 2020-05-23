@@ -31,9 +31,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    observable.pipe(map(data => 'Round: ' + (data + 1)));
-
-    this.firstSubscription = observable.subscribe(
+    this.firstSubscription = observable
+      .pipe(map(data => 'Round: ' + (data + 1)))
+      .subscribe(
       data => console.log(data),
       error => alert(error.message),
       () => console.log('completed'));
