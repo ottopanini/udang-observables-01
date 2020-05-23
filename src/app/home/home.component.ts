@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    this.firstSubscription = observable.subscribe(data => console.log(data),
+    this.firstSubscription = observable.subscribe(
+      data => console.log('Round:' + data),
       error => alert(error.message),
       () => console.log('completed'));
   }
